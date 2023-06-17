@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Retrofitclient {
     private static Retrofit  instance;
     public static Retrofit getInstance(String baseUrl){
-        if(instance != null){
+        if(instance == null){
             instance = new Retrofit.Builder()
                     .baseUrl(baseUrl)
                     .addConverterFactory(GsonConverterFactory.create())

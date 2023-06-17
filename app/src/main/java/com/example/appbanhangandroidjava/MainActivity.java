@@ -1,17 +1,27 @@
 package com.example.appbanhangandroidjava;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.appbanhangandroidjava.Screens.PhoneActivity;
 import com.example.appbanhangandroidjava.Utils.Utils;
 import com.example.appbanhangandroidjava.adapters.LoaiSpAdapter;
+import com.example.appbanhangandroidjava.adapters.SanPhamNewAdapter;
 import com.example.appbanhangandroidjava.models.LoaiSp;
+import com.example.appbanhangandroidjava.models.SanPhamNew;
+import com.example.appbanhangandroidjava.models.SanPhamNewModel;
 import com.example.appbanhangandroidjava.retrofits.APIBanHang;
 import com.example.appbanhangandroidjava.retrofits.Retrofitclient;
 
@@ -24,8 +34,11 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
     ListView lvLoai;
+    RecyclerView rcvNewSp;
     LoaiSpAdapter adapter;
     List<LoaiSp> loaiSp;
+    List<SanPhamNew> sanPhamNew;
+    SanPhamNewAdapter sanPhamNewAdapter;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
     APIBanHang apiBanHang;
     @Override
@@ -37,9 +50,27 @@ public class MainActivity extends AppCompatActivity {
         if (isConnect(this)){
             Toast.makeText(this, "Connect network success", Toast.LENGTH_SHORT).show();
             getLoaiSp();
+            getSpNew();
+            getEventClick();
         }else {
-            Toast.makeText(this, "Connect network faile", Toast.LENGTH_SHORT).show();
+            Toast.makeText( this, "Connect network faile", Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+
+    private void getSpNew() {
+        compositeDisposable.add(apiBanHang.getSanPhamNew()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        sanPhamNewModel -> {
+                            sanPhamNew = sanPhamNewModel.getReslut();
+                            sanPhamNewAdapter = new SanPhamNewAdapter(sanPhamNew,this);
+                            rcvNewSp.setAdapter(sanPhamNewAdapter);
+                        }
+                )
+        );
     }
 
     private void getLoaiSp() {
@@ -61,9 +92,33 @@ public class MainActivity extends AppCompatActivity {
 
     private void init(){
         lvLoai = findViewById(R.id.lvLoai);
+        rcvNewSp = findViewById(R.id.rcvSpNew);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(),2);
+        rcvNewSp.setLayoutManager(layoutManager);
+        rcvNewSp.setHasFixedSize(true);
         loaiSp = new ArrayList<>();
-        loaiSp.add(new LoaiSp("Dien thoai","ssss"));
+        sanPhamNew = new ArrayList<>();
 
+
+    }
+
+    private void getEventClick(){
+        lvLoai.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                switch (i){
+                    case 0:
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        Intent intent2 = new Intent(MainActivity.this, PhoneActivity.class);
+                        intent2.putExtra("loai",1);
+                        startActivity(intent2);
+                        break;
+                }
+            }
+        });
     }
 
     private boolean isConnect(Context context){

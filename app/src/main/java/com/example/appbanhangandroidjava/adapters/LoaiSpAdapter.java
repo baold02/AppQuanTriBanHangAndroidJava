@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.appbanhangandroidjava.R;
 import com.example.appbanhangandroidjava.models.LoaiSp;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -58,6 +59,7 @@ public class LoaiSpAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
         viewHolder.tvTenLoai.setText(loaiSps.get(i).getTensanpham());
+        Picasso.with(context).load(loaiSps.get(i).getHinhanh()).into(viewHolder.imgHinhLoai);
         return view;
     }
 }
