@@ -111,6 +111,9 @@ public class PhoneActivity extends AppCompatActivity {
                                           }
                                       }
 
+                                  }else {
+                                      Toast.makeText(this, "Dữ liệu đã cạn", Toast.LENGTH_SHORT).show();
+                                      isLoading = true;
                                   }
                         },
                         throwable -> {

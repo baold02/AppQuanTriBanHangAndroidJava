@@ -1,6 +1,7 @@
 package com.example.appbanhangandroidjava.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appbanhangandroidjava.R;
+import com.example.appbanhangandroidjava.Screens.DetailsPhoneActivity;
+import com.example.appbanhangandroidjava.interfaces.ItemClickListener;
 import com.example.appbanhangandroidjava.models.SanPhamNew;
 
 import java.util.List;
@@ -60,6 +63,16 @@ public class PhoneAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
               ViewHolder viewHolder = (ViewHolder) holder;
               SanPhamNew sanPhamNew = list.get(position);
               viewHolder.tvNamePhone.setText(sanPhamNew.getTensp());
+             viewHolder.setItemClickListener(new ItemClickListener() {
+                 @Override
+                 public void onClick(View view, int pos, boolean isLongClick) {
+                     if(!isLongClick){
+                         Intent intent = new Intent(context, DetailsPhoneActivity.class);
+                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                         context.startActivity(intent);
+                     }
+                 }
+             });
           }else {
               LoadingViewHodel loadingViewHodel = (LoadingViewHodel) holder;
               loadingViewHodel.progressBar.setIndeterminate(true);
@@ -86,15 +99,25 @@ public class PhoneAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         }
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tvNamePhone, tvPricePhone, tvDesPhone;
         ImageView imgPhone;
+        private ItemClickListener itemClickListener;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvNamePhone = itemView.findViewById(R.id.tv_namePhone);
             tvPricePhone = itemView.findViewById(R.id.tv_pricePhone);
             tvDesPhone = itemView.findViewById(R.id.tv_desPhone);
             imgPhone = itemView.findViewById(R.id.img_phone);
+            itemView.setOnClickListener(this);
+        }
+       public void setItemClickListener(ItemClickListener itemClickListener){
+            this.itemClickListener = itemClickListener;
+       }
+
+        @Override
+        public void onClick(View view) {
+            itemClickListener.onClick(view,getAdapterPosition(),false);
         }
     }
 }
