@@ -3,6 +3,7 @@ package com.example.appbanhangandroidjava.retrofits;
 import com.example.appbanhangandroidjava.models.LoaiSp;
 import com.example.appbanhangandroidjava.models.LoaiSpModel;
 import com.example.appbanhangandroidjava.models.SanPhamNewModel;
+import com.example.appbanhangandroidjava.models.UserModel;
 
 import io.reactivex.rxjava3.core.Observable;
 import retrofit2.http.Field;
@@ -23,6 +24,22 @@ public interface APIBanHang {
     Observable<SanPhamNewModel> getSanPham(
             @Field("page") int page,
             @Field("loai") int loai
+    );
+
+    @POST("rigister.php")
+    @FormUrlEncoded
+    Observable<UserModel> Rigister(
+            @Field("email") String email,
+            @Field("pass") String pass,
+            @Field("usernane") String usernane,
+            @Field("phone") String phone
+    );
+
+    @POST("signin.php")
+    @FormUrlEncoded
+    Observable<UserModel> signin(
+            @Field("email") String email,
+            @Field("pass") String pass
     );
 
 

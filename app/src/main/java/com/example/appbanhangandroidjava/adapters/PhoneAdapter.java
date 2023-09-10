@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appbanhangandroidjava.R;
-import com.example.appbanhangandroidjava.Screens.DetailsPhoneActivity;
+import com.example.appbanhangandroidjava.Screens.DetailsProductActivity;
 import com.example.appbanhangandroidjava.interfaces.ItemClickListener;
 import com.example.appbanhangandroidjava.models.SanPhamNew;
 
@@ -63,11 +63,13 @@ public class PhoneAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
               ViewHolder viewHolder = (ViewHolder) holder;
               SanPhamNew sanPhamNew = list.get(position);
               viewHolder.tvNamePhone.setText(sanPhamNew.getTensp());
+//              viewHolder.tvPricePhone
              viewHolder.setItemClickListener(new ItemClickListener() {
                  @Override
                  public void onClick(View view, int pos, boolean isLongClick) {
                      if(!isLongClick){
-                         Intent intent = new Intent(context, DetailsPhoneActivity.class);
+                         Intent intent = new Intent(context, DetailsProductActivity.class);
+                         intent.putExtra("chitiet",sanPhamNew);
                          intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                          context.startActivity(intent);
                      }

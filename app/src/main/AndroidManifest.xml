@@ -16,20 +16,34 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Screens.DetailsPhoneActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Screens.PhoneActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".Screens.SignupActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Screens.RigisterActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".Screens.CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Screens.LapTopActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Screens.DetailsProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Screens.PhoneActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"></activity>
     </application>
 
 </manifest>

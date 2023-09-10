@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.appbanhangandroidjava.Screens.LapTopActivity;
 import com.example.appbanhangandroidjava.Screens.PhoneActivity;
 import com.example.appbanhangandroidjava.Utils.Utils;
 import com.example.appbanhangandroidjava.adapters.LoaiSpAdapter;
@@ -24,6 +25,7 @@ import com.example.appbanhangandroidjava.models.SanPhamNew;
 import com.example.appbanhangandroidjava.models.SanPhamNewModel;
 import com.example.appbanhangandroidjava.retrofits.APIBanHang;
 import com.example.appbanhangandroidjava.retrofits.Retrofitclient;
+import com.nex3z.notificationbadge.NotificationBadge;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
     SanPhamNewAdapter sanPhamNewAdapter;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
     APIBanHang apiBanHang;
+    NotificationBadge notificationBadge;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,6 +102,9 @@ public class MainActivity extends AppCompatActivity {
         rcvNewSp.setHasFixedSize(true);
         loaiSp = new ArrayList<>();
         sanPhamNew = new ArrayList<>();
+        if (Utils.mangGioHang == null){
+            Utils.mangGioHang = new ArrayList<>();
+        }
 
 
     }
@@ -108,13 +115,14 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i){
                     case 0:
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(intent);
-                        break;
-                    case 1:
                         Intent intent2 = new Intent(MainActivity.this, PhoneActivity.class);
                         intent2.putExtra("loai",1);
                         startActivity(intent2);
+                        break;
+                    case 1:
+                        Intent intent = new Intent(MainActivity.this, LapTopActivity.class);
+                        intent.putExtra("loai",2);
+                        startActivity(intent);
                         break;
                 }
             }

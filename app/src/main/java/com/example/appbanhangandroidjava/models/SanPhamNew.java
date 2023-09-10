@@ -1,6 +1,8 @@
 package com.example.appbanhangandroidjava.models;
 
-public class SanPhamNew {
+import java.io.Serializable;
+
+public class SanPhamNew implements Serializable {
     private int id;
     private String tensp;
     private String giasp;
