@@ -114,10 +114,10 @@ public class DetailsProductActivity extends AppCompatActivity {
         notificationBadge = findViewById(R.id.menu_sl);
         int totalItem = 0;
         if (Utils.mangGioHang != null) {
-            totalItem = 0;
-            for (int i = 0; i < Utils.mangGioHang.size(); i++) {
-                totalItem = totalItem + Utils.mangGioHang.get(i).getSoluong();
-            }
+                    totalItem = 0;
+                    for (int i = 0; i < Utils.mangGioHang.size(); i++) {
+                        totalItem = totalItem + Utils.mangGioHang.get(i).getSoluong();
+                    }
         }
         notificationBadge.setText(String.valueOf(totalItem));
 

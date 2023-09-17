@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.media.metrics.Event;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +31,7 @@ public class CartActivity extends AppCompatActivity {
     RecyclerView rcv;
     Button btnMuaHang;
     CartAdapter cartAdapter;
+    long sumMoney;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +39,17 @@ public class CartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cart);
         initView();
         initControl();
+        SumMoney();
     }
 
 
     private void SumMoney(){
-        long sumMoney = 0;
+         sumMoney = 0;
         for(int i = 0; i<Utils.mangGioHang.size(); i++){
             sumMoney = sumMoney + (Utils.mangGioHang.get(i).getGiasp() * Utils.mangGioHang.get(i).getSoluong());
         }
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-
+         tvSumPrice.setText(decimalFormat.format(sumMoney));
 
     }
     private void initControl() {
@@ -59,6 +62,16 @@ public class CartActivity extends AppCompatActivity {
             cartAdapter = new CartAdapter(getApplicationContext(), Utils.mangGioHang);
             rcv.setAdapter(cartAdapter);
         }
+
+
+        btnMuaHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentPay = new Intent(CartActivity.this,PayImmediatelyActivity.class);
+                intentPay.putExtra("sumprice",sumMoney);
+                startActivity(intentPay);
+            }
+        });
 
     }
 
