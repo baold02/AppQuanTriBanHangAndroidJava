@@ -41,8 +41,8 @@ public class PayImmediatelyActivity extends AppCompatActivity {
 
     private void countItem() {
         totalItem = 0;
-        for (int i = 0; i < Utils.mangGioHang.size(); i++) {
-            totalItem = totalItem + Utils.mangGioHang.get(i).getSoluong();
+        for (int i = 0; i < Utils.mangMuaHang.size(); i++) {
+            totalItem = totalItem + Utils.mangMuaHang.get(i).getSoluong();
         }
     }
 
@@ -62,12 +62,13 @@ public class PayImmediatelyActivity extends AppCompatActivity {
                      String str_email = Utils.user_current.getEmail();
                      String str_sdt = Utils.user_current.getPhone();
                      int id = Utils.user_current.getId();
-                    compositeDisposable.add(apiBanHang.creatOder(str_email,str_sdt,String.valueOf(sumPrice),id,str_diaChi,2,new  Gson().toJson(Utils.mangGioHang))
+                    compositeDisposable.add(apiBanHang.creatOder(str_email,str_sdt,String.valueOf(sumPrice),id,str_diaChi,2,new  Gson().toJson(Utils.mangMuaHang))
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(
                                     userModel -> {
                                         Toast.makeText(PayImmediatelyActivity.this, "THanh cong", Toast.LENGTH_SHORT).show();
+                                        Utils.mangMuaHang.clear();
                                     },
                                     throwable -> {
                                         Toast.makeText(PayImmediatelyActivity.this, throwable.getMessage(), Toast.LENGTH_SHORT).show();

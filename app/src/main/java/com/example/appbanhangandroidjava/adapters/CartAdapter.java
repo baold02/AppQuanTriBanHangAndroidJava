@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,6 +50,24 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
         Picasso.with(context).load(gioHangList.get(position).getHinhsp()).into(holder.imageView);
         holder.item_tvNameProduct.setText(gioHang.getTensp());
         holder.item_soLuong.setText(gioHang.getSoluong() + "");
+        holder.cb_cart.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    Utils.mangMuaHang.add(gioHang);
+                    EventBus.getDefault().postSticky(new SumEvent());
+
+                }else {
+                        for (int i = 0; i <Utils.mangMuaHang.size(); i++){
+                            if(Utils.mangMuaHang.get(i).getIdsp() == gioHang.getIdsp()){
+                                Utils.mangMuaHang.remove(i);
+                                EventBus.getDefault().postSticky(new SumEvent());
+                            }
+                        }
+                }
+            }
+        });
+
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
         holder.item_price1.setText( decimalFormat.format(gioHang.getGiasp()));
         long gia = gioHang.getSoluong() * gioHang.getGiasp();
@@ -115,6 +135,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
         ImageView imageView, imageRemove, imageAdd;
         TextView item_tvNameProduct, item_price1, item_soLuong,item_gia2;
         ImageClickListener listener;
+        CheckBox cb_cart;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             item_tvNameProduct = itemView.findViewById(R.id.item_name_cart);
@@ -124,6 +145,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
             item_gia2 = itemView.findViewById(R.id.price);
             imageAdd = itemView.findViewById(R.id.img_add);
             imageRemove = itemView.findViewById(R.id.img_remove);
+            cb_cart = itemView.findViewById(R.id.cb_cart);
 
             imageAdd.setOnClickListener(this);
             imageRemove.setOnClickListener(this);

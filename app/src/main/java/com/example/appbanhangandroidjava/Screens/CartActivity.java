@@ -45,8 +45,8 @@ public class CartActivity extends AppCompatActivity {
 
     private void SumMoney(){
          sumMoney = 0;
-        for(int i = 0; i<Utils.mangGioHang.size(); i++){
-            sumMoney = sumMoney + (Utils.mangGioHang.get(i).getGiasp() * Utils.mangGioHang.get(i).getSoluong());
+        for(int i = 0; i<Utils.mangMuaHang.size(); i++){
+            sumMoney = sumMoney + (Utils.mangMuaHang.get(i).getGiasp() * Utils.mangMuaHang.get(i).getSoluong());
         }
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
          tvSumPrice.setText(decimalFormat.format(sumMoney));
@@ -69,6 +69,7 @@ public class CartActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentPay = new Intent(CartActivity.this,PayImmediatelyActivity.class);
                 intentPay.putExtra("sumprice",sumMoney);
+                Utils.mangGioHang.clear();
                 startActivity(intentPay);
             }
         });

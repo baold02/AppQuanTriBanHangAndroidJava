@@ -2,6 +2,7 @@ package com.example.appbanhangandroidjava.retrofits;
 
 import com.example.appbanhangandroidjava.models.LoaiSp;
 import com.example.appbanhangandroidjava.models.LoaiSpModel;
+import com.example.appbanhangandroidjava.models.OrderModel;
 import com.example.appbanhangandroidjava.models.SanPhamNewModel;
 import com.example.appbanhangandroidjava.models.UserModel;
 
@@ -54,5 +55,20 @@ public interface APIBanHang {
             @Field("soluong") int soluong,
             @Field("chitiet") String chitiet
     );
+
+    @POST("historyPayment.php")
+    @FormUrlEncoded
+    Observable<OrderModel> xemDonHang(
+            @Field("iduser") int id
+    );
+
+    @POST("findProduct.php")
+    @FormUrlEncoded
+    Observable<SanPhamNewModel> findProduct(
+            @Field("search") String search
+    );
+
+
+
 
 }

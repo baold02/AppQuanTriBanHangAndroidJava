@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.appbanhangandroidjava.R;
@@ -22,6 +23,7 @@ public class RigisterActivity extends AppCompatActivity {
 
     EditText edtEmail, edtPass, edtUsername, edtPhoneNumber;
     Button btnRigister;
+    TextView txtSigin;
     APIBanHang apiBanHang;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
 
@@ -34,6 +36,15 @@ public class RigisterActivity extends AppCompatActivity {
     }
 
     private void initControl(){
+
+        txtSigin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent siginActivity = new Intent(RigisterActivity.this,SiginActivity.class);
+                startActivity(siginActivity);
+                finish();
+            }
+        });
         btnRigister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,29 +58,41 @@ public class RigisterActivity extends AppCompatActivity {
         String str_pass = edtPass.getText().toString().trim();
         String str_username = edtUsername.getText().toString().trim();
         String str_phone = edtPhoneNumber.getText().toString().trim();
+        
+        if (str_email.isEmpty()){
+            Toast.makeText(this, "Email cannot empty", Toast.LENGTH_SHORT).show();
+        }else if(str_pass.isEmpty()){
+            Toast.makeText(this, "Passworld cannot empty", Toast.LENGTH_SHORT).show();
+        }else if(str_username.isEmpty()){
+            Toast.makeText(this, "Username cannot empty", Toast.LENGTH_SHORT).show();
+        }else if(str_phone.isEmpty()){
+            Toast.makeText(this, "Phone number cannot empty", Toast.LENGTH_SHORT).show();
+        }else {
+            compositeDisposable.add(apiBanHang.Rigister(str_email,str_pass,str_username,str_phone)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(
+                            userModel -> {
+                                if(userModel.isSuccess()){
+                                    Utils.user_current.setEmail(str_email);
+                                    Utils.user_current.setPass(str_pass);
+                                    Intent intent = new Intent(RigisterActivity.this, SiginActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                    Toast.makeText(this, "Creat new account successfuly", Toast.LENGTH_SHORT).show();
 
-        compositeDisposable.add(apiBanHang.Rigister(str_email,str_pass,str_username,str_phone)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        userModel -> {
-                           if(userModel.isSuccess()){
-                               Utils.user_current.setEmail(str_email);
-                               Utils.user_current.setPass(str_pass);
-                               Intent intent = new Intent(RigisterActivity.this, SignupActivity.class);
-                               startActivity(intent);
-                               finish();
-                               Toast.makeText(this, "Tao tai khoan thanh cong", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    Toast.makeText(this, userModel.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            },
+                            throwable -> {
+                                Toast.makeText(this, throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                    )
+            );
+        }
 
-                           }else {
-                               Toast.makeText(this, userModel.getMessage(), Toast.LENGTH_SHORT).show();
-                           }
-                        },
-                        throwable -> {
-                            Toast.makeText(this, throwable.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                )
-        );
+
     }
 
 
@@ -79,6 +102,7 @@ public class RigisterActivity extends AppCompatActivity {
         edtPass = findViewById(R.id.edtPass);
         edtUsername = findViewById(R.id.edtUsername);
         edtPhoneNumber = findViewById(R.id.edtPhone);
+        txtSigin = findViewById(R.id.siginText);
         btnRigister = findViewById(R.id.btnRigister);
     }
 

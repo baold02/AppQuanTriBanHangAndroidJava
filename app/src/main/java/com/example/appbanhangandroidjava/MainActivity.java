@@ -10,15 +10,21 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.appbanhangandroidjava.Screens.LapTopActivity;
 import com.example.appbanhangandroidjava.Screens.PhoneActivity;
+import com.example.appbanhangandroidjava.Screens.ViewHistoryActivity;
 import com.example.appbanhangandroidjava.Utils.Utils;
 import com.example.appbanhangandroidjava.adapters.LoaiSpAdapter;
+import com.example.appbanhangandroidjava.adapters.PhoneAdapter;
 import com.example.appbanhangandroidjava.adapters.SanPhamNewAdapter;
 import com.example.appbanhangandroidjava.models.LoaiSp;
 import com.example.appbanhangandroidjava.models.SanPhamNew;
@@ -39,11 +45,15 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView rcvNewSp;
     LoaiSpAdapter adapter;
     List<LoaiSp> loaiSp;
+
+    PhoneAdapter phoneAdapter;
     List<SanPhamNew> sanPhamNew;
     SanPhamNewAdapter sanPhamNewAdapter;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
     APIBanHang apiBanHang;
     NotificationBadge notificationBadge;
+
+    EditText edtSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +105,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init(){
+        apiBanHang = Retrofitclient.getInstance(Utils.BASE_URL).create(APIBanHang.class);
+         edtSearch = findViewById(R.id.edtSearch);
+         edtSearch.addTextChangedListener(new TextWatcher() {
+             @Override
+             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+             }
+
+             @Override
+             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                 if(s.length() == 0){
+                     sanPhamNew.clear();
+                     phoneAdapter = new PhoneAdapter(getApplicationContext(),sanPhamNew);
+                     rcvNewSp.setAdapter(phoneAdapter);
+                 }
+                 getDataSearch(s.toString());
+
+             }
+
+             @Override
+             public void afterTextChanged(Editable s) {
+             }
+         });
+        TextView textView = findViewById(R.id.tvOder);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ViewHistoryActivity.class);
+                startActivity(intent);
+            }
+        });
         lvLoai = findViewById(R.id.lvLoai);
         rcvNewSp = findViewById(R.id.rcvSpNew);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(),2);
@@ -107,6 +148,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    private void getDataSearch(String s) {
+        sanPhamNew.clear();
+        compositeDisposable.add(apiBanHang.findProduct(s)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        sanPhamNewModel -> {
+                            if ((sanPhamNewModel.isSuccess())) {
+                                sanPhamNew = sanPhamNewModel.getReslut();
+                                    phoneAdapter = new PhoneAdapter(getApplicationContext(),sanPhamNew);
+                                    rcvNewSp.setAdapter(phoneAdapter);
+                            }
+                        },
+                        throwable -> {
+
+                        }
+                ));
     }
 
     private void getEventClick(){

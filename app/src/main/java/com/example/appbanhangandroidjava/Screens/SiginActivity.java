@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.appbanhangandroidjava.MainActivity;
@@ -21,8 +22,9 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class SignupActivity extends AppCompatActivity {
+public class SiginActivity extends AppCompatActivity {
     EditText edtAccount, edtPass;
+    TextView edtSignup;
     Button btnSignin;
     APIBanHang apiBanHang;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
@@ -31,20 +33,36 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.activity_sigin);
         initView();
         initControl();
     }
 
     private void initControl() {
+
+      edtSignup.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              Intent SignUpActivity = new Intent(SiginActivity.this,RigisterActivity.class);
+              startActivity(SignUpActivity);
+          }
+      });
+
       btnSignin.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-                String srt_email = edtAccount.getText().toString().trim();
-                String srt_pass = edtPass.getText().toString().trim();
-                Paper.book().write("email", srt_email);
-                Paper.book().write("pass", srt_pass);
-               dangNhap(srt_email,srt_pass);
+                String str_email = edtAccount.getText().toString().trim();
+                String str_pass = edtPass.getText().toString().trim();
+                Paper.book().write("email", str_email);
+                Paper.book().write("pass", str_pass);
+                if(str_email.isEmpty()){
+                    Toast.makeText(SiginActivity.this, "Email cannot empty", Toast.LENGTH_SHORT).show();
+                }else if(str_pass.isEmpty()){
+                    Toast.makeText(SiginActivity.this, "Passworld cannot empty", Toast.LENGTH_SHORT).show();
+                }else {
+                    Sigin(str_email,str_pass);
+
+                }
           }
       });
     }
@@ -54,6 +72,7 @@ public class SignupActivity extends AppCompatActivity {
         apiBanHang = Retrofitclient.getInstance(Utils.BASE_URL).create(APIBanHang.class);
         edtAccount = findViewById(R.id.edtAccount);
         edtPass = findViewById(R.id.edtPass);
+        edtSignup = findViewById(R.id.signupText);
         btnSignin = findViewById(R.id.btnSignin);
 
         if(Paper.book().read("email") != null && Paper.book().read("pass") != null ){
@@ -65,7 +84,7 @@ public class SignupActivity extends AppCompatActivity {
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            dangNhap(Paper.book().read("email"),Paper.book().read("pass"));
+                            Sigin(Paper.book().read("email"),Paper.book().read("pass"));
                         }
                     },1000);
                 }
@@ -73,7 +92,7 @@ public class SignupActivity extends AppCompatActivity {
         }
     }
 
-    private void dangNhap(String str_email, String str_pass) {
+    private void Sigin(String str_email, String str_pass) {
         compositeDisposable.add(apiBanHang.signin(str_email,str_pass)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -84,14 +103,16 @@ public class SignupActivity extends AppCompatActivity {
                                  Paper.book().write("islogin", isLogin);
 
                                 Utils.user_current = userModel.getReslut().get(0);
-                                Toast.makeText(SignupActivity.this, "Dang nhap thanh cong", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                                Toast.makeText(SiginActivity.this, "Sigin successfuly", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(SiginActivity.this, MainActivity.class);
                                 startActivity(intent);
                                 finish();
+                            }else {
+                                Toast.makeText(this, "Email or Pass wrong!!", Toast.LENGTH_SHORT).show();
                             }
                         },
                         throwable ->{
-                            Toast.makeText(SignupActivity.this, throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SiginActivity.this, throwable.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                 )
         );

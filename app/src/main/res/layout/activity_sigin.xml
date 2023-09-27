@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/loginbkg"
-    tools:context=".Screens.RigisterActivity">
+    tools:context=".MainActivity">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Register"
+                android:text="Login"
                 android:id="@+id/loginText"
                 android:textSize="36sp"
                 android:textAlignment="center"
@@ -35,10 +35,11 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/edtEmail"
+                android:id="@+id/edtAccount"
                 android:background="@drawable/custom_edittex"
+                android:drawableLeft="@drawable/baseline_person_24"
                 android:drawablePadding="8dp"
-                android:hint="Nhập email của bạn"
+                android:hint="Username"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
@@ -48,43 +49,19 @@
                 android:layout_height="50dp"
                 android:id="@+id/edtPass"
                 android:background="@drawable/custom_edittex"
+                android:drawableLeft="@drawable/baseline_lock_24"
                 android:drawablePadding="8dp"
-                android:hint="Passworld"
+                android:hint="Password"
                 android:padding="8dp"
                 android:inputType="textPassword"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="20dp"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/edtUsername"
-                android:background="@drawable/custom_edittex"
-                android:drawablePadding="8dp"
-                android:hint="Nhập tên của bạn"
-                android:padding="8dp"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="20dp"/>
-
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:id="@+id/edtPhone"
-                android:background="@drawable/custom_edittex"
-                android:drawablePadding="8dp"
-                android:hint="Phone Number"
-                android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
                 android:layout_marginTop="20dp"/>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:id="@+id/btnRigister"
-                android:text="Rigister"
+                android:id="@+id/btnSignin"
+                android:text="Login"
                 android:textSize="18sp"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/purple"
@@ -95,10 +72,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="Not yet registered? Sigin Now"
+        android:text="Not yet registered? SignUp Now"
         android:textSize="14sp"
         android:textAlignment="center"
-        android:id="@+id/siginText"
+        android:id="@+id/signupText"
         android:textColor="@color/purple"
         android:layout_marginBottom="20dp"/>
 </LinearLayout>
