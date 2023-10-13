@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Screens.AddProductActivity">
+    <EditText
+        android:id="@+id/edtPostNameProduct"
+        android:layout_width="match_parent"
+        android:hint="Ten san pham"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/edtPostPriceProduct"
+        android:layout_width="match_parent"
+        android:hint="Gia san pham"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/edtPostImgProduct"
+        android:layout_width="match_parent"
+        android:hint="HInh san pham"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/edtPostDesProduct"
+        android:layout_width="match_parent"
+        android:hint="Mo ta san pham"
+        android:layout_height="wrap_content"/>
+    
+    <Spinner
+        android:id="@+id/spn_loai"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <Button
+        android:id="@+id/btnPostProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="them"/>
+
+
+</LinearLayout>

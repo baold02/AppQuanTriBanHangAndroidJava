@@ -1,0 +1,162 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.appbanhangandroidjava"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+8-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:5:5-67
+11-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:6:5-79
+12-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:6:22-76
+13
+14    <permission
+14-->[androidx.core:core:1.9.0] C:\Users\baole\.gradle\caches\transforms-3\ec4f76f6c0c02de8ba18086e7bd9baf5\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+15        android:name="com.example.appbanhangandroidjava.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+15-->[androidx.core:core:1.9.0] C:\Users\baole\.gradle\caches\transforms-3\ec4f76f6c0c02de8ba18086e7bd9baf5\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+16        android:protectionLevel="signature" />
+16-->[androidx.core:core:1.9.0] C:\Users\baole\.gradle\caches\transforms-3\ec4f76f6c0c02de8ba18086e7bd9baf5\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+17
+18    <uses-permission android:name="com.example.appbanhangandroidjava.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+18-->[androidx.core:core:1.9.0] C:\Users\baole\.gradle\caches\transforms-3\ec4f76f6c0c02de8ba18086e7bd9baf5\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+18-->[androidx.core:core:1.9.0] C:\Users\baole\.gradle\caches\transforms-3\ec4f76f6c0c02de8ba18086e7bd9baf5\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+19
+20    <application
+20-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:8:5-62:19
+21        android:allowBackup="true"
+21-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:9:9-35
+22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+22-->[androidx.core:core:1.9.0] C:\Users\baole\.gradle\caches\transforms-3\ec4f76f6c0c02de8ba18086e7bd9baf5\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+23        android:dataExtractionRules="@xml/data_extraction_rules"
+23-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:10:9-65
+24        android:debuggable="true"
+25        android:extractNativeLibs="false"
+26        android:fullBackupContent="@xml/backup_rules"
+26-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:11:9-54
+27        android:icon="@mipmap/ic_launcher"
+27-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:12:9-43
+28        android:label="@string/app_name"
+28-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:13:9-41
+29        android:supportsRtl="true"
+29-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:14:9-35
+30        android:testOnly="true"
+31        android:theme="@style/Theme.AppBanHangAndroidJava"
+31-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:15:9-59
+32        android:usesCleartextTraffic="true" >
+32-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:16:9-44
+33        <activity
+33-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:18:9-26:20
+34            android:name="com.example.appbanhangandroidjava.Screens.AddProductActivity"
+34-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:19:13-55
+35            android:exported="true" >
+35-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:20:13-36
+36            <intent-filter>
+36-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:21:13-25:29
+37                <action android:name="android.intent.action.MAIN" />
+37-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:22:17-69
+37-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:22:25-66
+38
+39                <category android:name="android.intent.category.LAUNCHER" />
+39-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:24:17-77
+39-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:24:27-74
+40            </intent-filter>
+41        </activity>
+42        <activity
+42-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:27:9-29:40
+43            android:name="com.example.appbanhangandroidjava.Screens.AdminActivity"
+43-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:28:13-50
+44            android:exported="false" />
+44-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:29:13-37
+45        <activity
+45-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:30:9-32:40
+46            android:name="com.example.appbanhangandroidjava.Screens.SearchActivity"
+46-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:31:13-51
+47            android:exported="false" />
+47-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:32:13-37
+48        <activity
+48-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:33:9-35:40
+49            android:name="com.example.appbanhangandroidjava.Screens.ViewHistoryActivity"
+49-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:34:13-56
+50            android:exported="false" />
+50-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:35:13-37
+51        <activity
+51-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:36:9-38:40
+52            android:name="com.example.appbanhangandroidjava.Screens.PayImmediatelyActivity"
+52-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:37:13-59
+53            android:exported="false" />
+53-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:38:13-37
+54        <activity
+54-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:39:9-43:20
+55            android:name="com.example.appbanhangandroidjava.Screens.SiginActivity"
+55-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:40:13-50
+56            android:exported="true" >
+56-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:41:13-36
+57        </activity>
+58        <activity
+58-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:44:9-46:39
+59            android:name="com.example.appbanhangandroidjava.Screens.RigisterActivity"
+59-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:45:13-53
+60            android:exported="true" />
+60-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:46:13-36
+61        <activity
+61-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:47:9-49:40
+62            android:name="com.example.appbanhangandroidjava.Screens.CartActivity"
+62-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:48:13-49
+63            android:exported="false" />
+63-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:49:13-37
+64        <activity
+64-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:50:9-52:40
+65            android:name="com.example.appbanhangandroidjava.Screens.LapTopActivity"
+65-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:51:13-51
+66            android:exported="false" />
+66-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:52:13-37
+67        <activity
+67-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:53:9-55:40
+68            android:name="com.example.appbanhangandroidjava.Screens.DetailsProductActivity"
+68-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:54:13-59
+69            android:exported="false" />
+69-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:55:13-37
+70        <activity
+70-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:56:9-58:40
+71            android:name="com.example.appbanhangandroidjava.Screens.PhoneActivity"
+71-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:57:13-50
+72            android:exported="false" />
+72-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:58:13-37
+73        <activity
+73-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:59:9-61:39
+74            android:name="com.example.appbanhangandroidjava.MainActivity"
+74-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:60:13-41
+75            android:exported="true" />
+75-->D:\AppBanHangAndroidJava\app\src\main\AndroidManifest.xml:61:13-36
+76
+77        <provider
+77-->[androidx.emoji2:emoji2:1.2.0] C:\Users\baole\.gradle\caches\transforms-3\791b39fe68826e8543c46f2d7f8b152e\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+78            android:name="androidx.startup.InitializationProvider"
+78-->[androidx.emoji2:emoji2:1.2.0] C:\Users\baole\.gradle\caches\transforms-3\791b39fe68826e8543c46f2d7f8b152e\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+79            android:authorities="com.example.appbanhangandroidjava.androidx-startup"
+79-->[androidx.emoji2:emoji2:1.2.0] C:\Users\baole\.gradle\caches\transforms-3\791b39fe68826e8543c46f2d7f8b152e\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+80            android:exported="false" >
+80-->[androidx.emoji2:emoji2:1.2.0] C:\Users\baole\.gradle\caches\transforms-3\791b39fe68826e8543c46f2d7f8b152e\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+81            <meta-data
+81-->[androidx.emoji2:emoji2:1.2.0] C:\Users\baole\.gradle\caches\transforms-3\791b39fe68826e8543c46f2d7f8b152e\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+82                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+82-->[androidx.emoji2:emoji2:1.2.0] C:\Users\baole\.gradle\caches\transforms-3\791b39fe68826e8543c46f2d7f8b152e\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+83                android:value="androidx.startup" />
+83-->[androidx.emoji2:emoji2:1.2.0] C:\Users\baole\.gradle\caches\transforms-3\791b39fe68826e8543c46f2d7f8b152e\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+84            <meta-data
+84-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\baole\.gradle\caches\transforms-3\86041ab2b0d2128b301212662b855cec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+85                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+85-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\baole\.gradle\caches\transforms-3\86041ab2b0d2128b301212662b855cec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+86                android:value="androidx.startup" />
+86-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\baole\.gradle\caches\transforms-3\86041ab2b0d2128b301212662b855cec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+87        </provider>
+88    </application>
+89
+90</manifest>
