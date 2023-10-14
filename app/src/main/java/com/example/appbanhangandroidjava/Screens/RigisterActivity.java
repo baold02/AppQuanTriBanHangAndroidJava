@@ -1,5 +1,6 @@
 package com.example.appbanhangandroidjava.Screens;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,6 +15,11 @@ import com.example.appbanhangandroidjava.R;
 import com.example.appbanhangandroidjava.Utils.Utils;
 import com.example.appbanhangandroidjava.retrofits.APIBanHang;
 import com.example.appbanhangandroidjava.retrofits.Retrofitclient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
@@ -26,6 +32,8 @@ public class RigisterActivity extends AppCompatActivity {
     TextView txtSigin;
     APIBanHang apiBanHang;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
+
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,31 +76,49 @@ public class RigisterActivity extends AppCompatActivity {
         }else if(str_phone.isEmpty()){
             Toast.makeText(this, "Phone number cannot empty", Toast.LENGTH_SHORT).show();
         }else {
-            compositeDisposable.add(apiBanHang.Rigister(str_email,str_pass,str_username,str_phone)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(
-                            userModel -> {
-                                if(userModel.isSuccess()){
-                                    Utils.user_current.setEmail(str_email);
-                                    Utils.user_current.setPass(str_pass);
-                                    Intent intent = new Intent(RigisterActivity.this, SiginActivity.class);
-                                    startActivity(intent);
-                                    finish();
-                                    Toast.makeText(this, "Creat new account successfuly", Toast.LENGTH_SHORT).show();
-
-                                }else {
-                                    Toast.makeText(this, userModel.getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-                            },
-                            throwable -> {
-                                Toast.makeText(this, throwable.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                    )
-            );
+            firebaseAuth = FirebaseAuth.getInstance();
+            firebaseAuth.createUserWithEmailAndPassword(str_email,str_pass)
+                    .addOnCompleteListener(RigisterActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                          if(task.isSuccessful()){
+                              FirebaseUser user = firebaseAuth.getCurrentUser();
+                              if(user != null){
+                                  postData(str_email,str_pass,str_username,str_phone, user.getUid());
+                              }
+                          }else {
+                              Toast.makeText(RigisterActivity.this, "Email đã tồn tại", Toast.LENGTH_SHORT).show();
+                          }
+                        }
+                    });
         }
 
 
+    }
+
+    private void postData(String str_email,String str_pass,String str_username,String str_phone, String uid){
+        compositeDisposable.add(apiBanHang.Rigister(str_email,str_pass,str_username,str_phone,uid)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        userModel -> {
+                            if(userModel.isSuccess()){
+                                Utils.user_current.setEmail(str_email);
+                                Utils.user_current.setPass(str_pass);
+                                Intent intent = new Intent(RigisterActivity.this, SiginActivity.class);
+                                startActivity(intent);
+                                finish();
+                                Toast.makeText(this, "Creat new account successfuly", Toast.LENGTH_SHORT).show();
+
+                            }else {
+                                Toast.makeText(this, userModel.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        },
+                        throwable -> {
+                            Toast.makeText(this, throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                )
+        );
     }
 
 

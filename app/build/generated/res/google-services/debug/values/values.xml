@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">635781244903</string>
+    <string name="google_api_key" translatable="false">AIzaSyDNiJTV3U5B79vaCdD6joY3geLTG-r9TxY</string>
+    <string name="google_app_id" translatable="false">1:635781244903:android:858c9edc86585bac587f42</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDNiJTV3U5B79vaCdD6joY3geLTG-r9TxY</string>
+    <string name="google_storage_bucket" translatable="false">appbanhangjava.appspot.com</string>
+    <string name="project_id" translatable="false">appbanhangjava</string>
+</resources>

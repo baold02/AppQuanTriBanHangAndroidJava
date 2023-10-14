@@ -16,11 +16,27 @@
         android:layout_width="match_parent"
         android:hint="Gia san pham"
         android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/edtPostImgProduct"
+
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:hint="HInh san pham"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/edtPostImgProduct"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:hint="HInh san pham"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/imgImage"
+            android:layout_width="30dp"
+            android:layout_weight="1"
+            android:layout_height="30dp"
+            android:layout_marginEnd="40dp"
+            android:src="@drawable/add_24"/>
+
+    </LinearLayout>
+
     <EditText
         android:id="@+id/edtPostDesProduct"
         android:layout_width="match_parent"

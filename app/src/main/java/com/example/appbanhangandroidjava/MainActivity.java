@@ -11,6 +11,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,6 +32,8 @@ import com.example.appbanhangandroidjava.models.SanPhamNew;
 import com.example.appbanhangandroidjava.models.SanPhamNewModel;
 import com.example.appbanhangandroidjava.retrofits.APIBanHang;
 import com.example.appbanhangandroidjava.retrofits.Retrofitclient;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.nex3z.notificationbadge.NotificationBadge;
 
 import java.util.ArrayList;
@@ -61,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         apiBanHang = Retrofitclient.getInstance(Utils.BASE_URL).create(APIBanHang.class);
         init();
+        getToken();
         if (isConnect(this)){
             Toast.makeText(this, "Connect network success", Toast.LENGTH_SHORT).show();
             getLoaiSp();
@@ -167,6 +171,29 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                 ));
+    }
+
+
+    private void getToken(){
+        FirebaseMessaging.getInstance().getToken()
+                .addOnSuccessListener(new OnSuccessListener<String>(){
+                    @Override
+                    public void onSuccess(String s) {
+                             if(!TextUtils.isEmpty(s)){
+                                compositeDisposable.add(apiBanHang.updatetoken(Utils.user_current.getId(),s)
+                                        .subscribeOn(Schedulers.io())
+                                        .observeOn(AndroidSchedulers.mainThread())
+                                        .subscribe(
+                                                messageModel -> {
+
+                                                },
+                                                throwable -> {
+
+                                                }
+                                        ));
+                             }
+                    }
+                });
     }
 
     private void getEventClick(){

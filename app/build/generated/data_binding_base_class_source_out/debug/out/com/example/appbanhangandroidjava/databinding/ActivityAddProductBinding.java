@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import androidx.annotation.NonNull;
@@ -37,18 +38,22 @@ public final class ActivityAddProductBinding implements ViewBinding {
   public final EditText edtPostPriceProduct;
 
   @NonNull
+  public final ImageView imgImage;
+
+  @NonNull
   public final Spinner spnLoai;
 
   private ActivityAddProductBinding(@NonNull LinearLayout rootView, @NonNull Button btnPostProduct,
       @NonNull EditText edtPostDesProduct, @NonNull EditText edtPostImgProduct,
       @NonNull EditText edtPostNameProduct, @NonNull EditText edtPostPriceProduct,
-      @NonNull Spinner spnLoai) {
+      @NonNull ImageView imgImage, @NonNull Spinner spnLoai) {
     this.rootView = rootView;
     this.btnPostProduct = btnPostProduct;
     this.edtPostDesProduct = edtPostDesProduct;
     this.edtPostImgProduct = edtPostImgProduct;
     this.edtPostNameProduct = edtPostNameProduct;
     this.edtPostPriceProduct = edtPostPriceProduct;
+    this.imgImage = imgImage;
     this.spnLoai = spnLoai;
   }
 
@@ -109,6 +114,12 @@ public final class ActivityAddProductBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.imgImage;
+      ImageView imgImage = ViewBindings.findChildViewById(rootView, id);
+      if (imgImage == null) {
+        break missingId;
+      }
+
       id = R.id.spn_loai;
       Spinner spnLoai = ViewBindings.findChildViewById(rootView, id);
       if (spnLoai == null) {
@@ -116,7 +127,8 @@ public final class ActivityAddProductBinding implements ViewBinding {
       }
 
       return new ActivityAddProductBinding((LinearLayout) rootView, btnPostProduct,
-          edtPostDesProduct, edtPostImgProduct, edtPostNameProduct, edtPostPriceProduct, spnLoai);
+          edtPostDesProduct, edtPostImgProduct, edtPostNameProduct, edtPostPriceProduct, imgImage,
+          spnLoai);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

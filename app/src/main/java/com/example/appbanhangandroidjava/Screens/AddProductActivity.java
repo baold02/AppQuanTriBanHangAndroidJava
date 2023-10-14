@@ -14,6 +14,7 @@ import com.example.appbanhangandroidjava.Utils.Utils;
 import com.example.appbanhangandroidjava.databinding.ActivityAddProductBinding;
 import com.example.appbanhangandroidjava.retrofits.APIBanHang;
 import com.example.appbanhangandroidjava.retrofits.Retrofitclient;
+import com.github.dhaval2404.imagepicker.ImagePicker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +65,18 @@ public class AddProductActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addProduct();
+            }
+        });
+
+
+        binding.imgImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImagePicker.with(AddProductActivity.this)
+                        .crop()	    			//Crop image(Optional), Check Customization for more option
+                        .compress(1024)			//Final image size will be less than 1 MB(Optional)
+                        .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
+                        .start();
             }
         });
 

@@ -1,5 +1,6 @@
 package com.example.appbanhangandroidjava.Screens;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,6 +17,11 @@ import com.example.appbanhangandroidjava.R;
 import com.example.appbanhangandroidjava.Utils.Utils;
 import com.example.appbanhangandroidjava.retrofits.APIBanHang;
 import com.example.appbanhangandroidjava.retrofits.Retrofitclient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import io.paperdb.Paper;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -28,6 +34,8 @@ public class SiginActivity extends AppCompatActivity {
     Button btnSignin;
     APIBanHang apiBanHang;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
+    FirebaseAuth firebaseAuth;
+    FirebaseUser user;
     boolean isLogin = false;
 
     @Override
@@ -53,14 +61,28 @@ public class SiginActivity extends AppCompatActivity {
           public void onClick(View v) {
                 String str_email = edtAccount.getText().toString().trim();
                 String str_pass = edtPass.getText().toString().trim();
-                Paper.book().write("email", str_email);
-                Paper.book().write("pass", str_pass);
+
                 if(str_email.isEmpty()){
                     Toast.makeText(SiginActivity.this, "Email cannot empty", Toast.LENGTH_SHORT).show();
                 }else if(str_pass.isEmpty()){
                     Toast.makeText(SiginActivity.this, "Passworld cannot empty", Toast.LENGTH_SHORT).show();
                 }else {
-                    Sigin(str_email,str_pass);
+                    Paper.book().write("email", str_email);
+                    Paper.book().write("pass", str_pass);
+                    if(user != null){
+                        Sigin(str_email,str_pass);
+                    }else {
+                        firebaseAuth.signInWithEmailAndPassword(str_email,str_pass)
+                                .addOnCompleteListener(SiginActivity.this, new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                        if(task.isSuccessful()){
+                                            Sigin(str_email,str_pass);
+                                        }
+                                    }
+                                });
+
+                    }
 
                 }
           }
@@ -74,6 +96,8 @@ public class SiginActivity extends AppCompatActivity {
         edtPass = findViewById(R.id.edtPass);
         edtSignup = findViewById(R.id.signupText);
         btnSignin = findViewById(R.id.btnSignin);
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
 
         if(Paper.book().read("email") != null && Paper.book().read("pass") != null ){
             edtAccount.setText(Paper.book().read("email"));
@@ -93,6 +117,7 @@ public class SiginActivity extends AppCompatActivity {
     }
 
     private void Sigin(String str_email, String str_pass) {
+
         compositeDisposable.add(apiBanHang.signin(str_email,str_pass)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

@@ -1,78 +1,78 @@
 [
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/item_sp_new.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/item_sp_new.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/item_phone.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/item_phone.xml"
     },
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/item_phone.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/item_phone.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/activity_add_product.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/activity_add_product.xml"
     },
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/item_loading.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/item_loading.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/item_cart.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/item_cart.xml"
     },
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/item_cart.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/item_cart.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/item_loaisp.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/item_loaisp.xml"
     },
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/activity_phone.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/activity_phone.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/activity_phone.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/activity_phone.xml"
     },
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/activity_view_history.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/activity_view_history.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/activity_admin.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/activity_admin.xml"
     },
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/item_loaisp.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/item_loaisp.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/activity_view_history.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/activity_view_history.xml"
     },
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/activity_sigin.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/activity_sigin.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/activity_rigister.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/activity_rigister.xml"
     },
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/item_history.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/item_history.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/item_order.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/item_order.xml"
     },
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/activity_details_phone.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/activity_details_phone.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/activity_lap_top.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/activity_lap_top.xml"
     },
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/activity_cart.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/activity_cart.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/item_loading.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/item_loading.xml"
     },
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/activity_main.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/activity_main.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/activity_details_phone.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/activity_details_phone.xml"
     },
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/activity_search.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/activity_search.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/activity_search.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/activity_search.xml"
     },
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/activity_rigister.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/activity_rigister.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/activity_main.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/activity_main.xml"
     },
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/activity_pay_immediately.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/activity_pay_immediately.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/activity_cart.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/activity_cart.xml"
     },
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/activity_lap_top.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/activity_lap_top.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/item_sp_new.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/item_sp_new.xml"
     },
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/activity_add_product.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/activity_add_product.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/activity_pay_immediately.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/activity_pay_immediately.xml"
     },
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/item_order.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/item_order.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/activity_sigin.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/activity_sigin.xml"
     },
     {
-        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-33:/layout/activity_admin.xml",
-        "source": "com.example.appbanhangandroidjava.app-main-36:/layout/activity_admin.xml"
+        "merged": "com.example.appbanhangandroidjava.app-mergeDebugResources-41:/layout/item_history.xml",
+        "source": "com.example.appbanhangandroidjava.app-main-44:/layout/item_history.xml"
     }
 ]

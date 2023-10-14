@@ -31,6 +31,7 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Teilen mit"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Mit <ns1:g id="APPLICATION_NAME">%s</ns1:g> teilen"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Minimieren"</string>
+    <string name="action_cancel">Abbrechen</string>
     <string name="bottomsheet_action_collapse">Ansicht am unteren Rand minimieren</string>
     <string name="bottomsheet_action_expand">Ansicht am unteren Rand maximieren</string>
     <string name="bottomsheet_action_expand_halfway">Zur Hälfte maximieren</string>
@@ -39,7 +40,31 @@
     <string name="character_counter_content_description">Eingegebene Zeichen: %1$d von %2$d</string>
     <string name="character_counter_overflowed_content_description">Zeichenbeschränkung überschritten: %1$d/%2$d</string>
     <string name="clear_text_end_icon_content_description">Text löschen</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Aktivieren</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s funktioniert erst nach der Aktivierung der Google Play-Dienste.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play-Dienste aktivieren</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">Installieren</string>
+    <string name="common_google_play_services_install_text">Zur Nutzung von %1$s sind die Google Play-Dienste erforderlich, die auf deinem Gerät nicht installiert sind.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play-Dienste installieren</string>
+    <string name="common_google_play_services_notification_channel_name">Verfügbarkeit von Google Play-Diensten</string>
+    <string name="common_google_play_services_notification_ticker">Fehler bei Zugriff auf Google Play-Dienste</string>
+    <string name="common_google_play_services_unknown_issue">%1$s hat Probleme mit Google Play-Diensten. Bitte versuche es noch einmal.</string>
+    <string name="common_google_play_services_unsupported_text">Zur Nutzung von %1$s sind Google Play-Dienste erforderlich, die auf deinem Gerät nicht unterstützt werden.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">Aktualisieren</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s wird nur ausgeführt, wenn du die Google Play-Dienste aktualisierst.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play-Dienste aktualisieren</string>
+    <string name="common_google_play_services_updating_text">Zur Nutzung von %1$s sind Google Play-Dienste erforderlich, die gerade aktualisiert werden.</string>
+    <string name="common_google_play_services_wear_update_text">Eine neue Version der Google Play-Dienste wird benötigt. Diese wird in Kürze automatisch aktualisiert.</string>
+    <string name="common_open_on_phone">Auf Smartphone öffnen</string>
+    <string name="common_signin_button_text">Anmelden</string>
+    <string name="common_signin_button_text_long">Über Google anmelden</string>
+    <string name="error_camera_app_not_found">Es wurde keine Kamera-App gefunden</string>
+    <string name="error_failed_pick_gallery_image">Es konnte kein Foto aus der Galerie ausgwählt werden</string>
+    <string name="error_failed_to_compress_image">Foto konnte nicht komprimiert werden</string>
+    <string name="error_failed_to_create_camera_image_file">Es konnte kein Foto aufgenommen werden</string>
+    <string name="error_failed_to_crop_image">Foto konnte nicht zugschnitten werden</string>
     <string name="error_icon_content_description">Fehler</string>
+    <string name="error_task_cancelled">Vorgang abgebrochen</string>
     <string name="exposed_dropdown_menu_content_description">Drop-down-Menü anzeigen</string>
     <string name="icon_content_description">Dialogfeldsymbol</string>
     <string name="item_view_role_description">Tab</string>
@@ -93,6 +118,17 @@
     <string name="mtrl_timepicker_cancel">Abbrechen</string>
     <string name="mtrl_timepicker_confirm">OK</string>
     <string name="password_toggle_content_description">Passwort anzeigen</string>
+    <string name="permission_camera_denied">
+        <![CDATA[Die Berechtigung zum Zugriff auf den externen Speicher ist notwendig um ein Foto aufzunehmen. Bitte erlaube den Zugriff unter Einstellungen > Berechtigungen.]]></string>
     <string msgid="6264217191555673260" name="search_menu_title">"Suche"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="title_camera">Kamera</string>
+    <string name="title_choose_image_provider">Auswählen</string>
+    <string name="title_gallery">Galerie</string>
+    <string name="ucrop_crop">Zuschneiden</string>
+    <string name="ucrop_label_edit_photo">Foto bearbeiten</string>
+    <string name="ucrop_label_original">Original</string>
+    <string name="ucrop_menu_crop">Zuschneiden</string>
+    <string name="ucrop_rotate">Drehen</string>
+    <string name="ucrop_scale">Skalieren</string>
 </resources>
