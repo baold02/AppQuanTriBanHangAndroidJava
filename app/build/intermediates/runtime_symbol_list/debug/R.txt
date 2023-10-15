@@ -3546,6 +3546,7 @@ int id imgChiTiet 0x7f080109
 int id imgHistory 0x7f08010a
 int id imgImage 0x7f08010b
 int id imgLoai 0x7f08010c
+int id imgNoti 0x7f08026f
 int id imgSp 0x7f08010d
 int id img_add 0x7f08010e
 int id img_gioHang 0x7f08010f
@@ -3848,6 +3849,7 @@ int id transition_scene_layoutid_cache 0x7f080237
 int id transition_transform 0x7f080238
 int id triangle 0x7f080239
 int id tvCategories 0x7f08023a
+int id tvContentNoti 0x7f080270
 int id tvEmail 0x7f08023b
 int id tvGioHangTrong 0x7f08023c
 int id tvId 0x7f08023d
@@ -3867,6 +3869,7 @@ int id tv_namePhone 0x7f08024a
 int id tv_pricePhone 0x7f08024b
 int id tvhi 0x7f08024c
 int id tvpriceDetails 0x7f08024d
+int id tvtitleNoti 0x7f080271
 int id txtMoTaDetails 0x7f08024e
 int id ucrop 0x7f08024f
 int id ucrop_frame 0x7f080250
@@ -4026,6 +4029,7 @@ int layout activity_phone 0x7f0b0023
 int layout activity_rigister 0x7f0b0024
 int layout activity_search 0x7f0b0025
 int layout activity_sigin 0x7f0b0026
+int layout activity_splash 0x7f0b008a
 int layout activity_view_history 0x7f0b0027
 int layout browser_actions_context_menu_page 0x7f0b0028
 int layout browser_actions_context_menu_row 0x7f0b0029
@@ -4104,6 +4108,7 @@ int layout mtrl_picker_text_input_date 0x7f0b0071
 int layout mtrl_picker_text_input_date_range 0x7f0b0072
 int layout mtrl_search_bar 0x7f0b0073
 int layout mtrl_search_view 0x7f0b0074
+int layout notification 0x7f0b0089
 int layout notification_action 0x7f0b0075
 int layout notification_action_tombstone 0x7f0b0076
 int layout notification_badge 0x7f0b0077

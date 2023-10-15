@@ -128,6 +128,8 @@ public class SiginActivity extends AppCompatActivity {
                                  Paper.book().write("islogin", isLogin);
 
                                 Utils.user_current = userModel.getReslut().get(0);
+                                //save info user
+                                Paper.book().write("user",userModel.getReslut().get(0));
                                 Toast.makeText(SiginActivity.this, "Sigin successfuly", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(SiginActivity.this, MainActivity.class);
                                 startActivity(intent);

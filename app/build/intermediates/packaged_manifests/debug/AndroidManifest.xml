@@ -47,9 +47,11 @@
         android:theme="@style/Theme.AppBanHangAndroidJava"
         android:usesCleartextTraffic="true" >
         <activity
+            android:name="com.example.appbanhangandroidjava.SplashActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.appbanhangandroidjava.Screens.AddProductActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="true" />
         <activity
             android:name="com.example.appbanhangandroidjava.Screens.AdminActivity"
             android:exported="false" />
@@ -65,16 +67,15 @@
         <activity
             android:name="com.example.appbanhangandroidjava.Screens.SiginActivity"
             android:exported="true" >
-        </activity>
-        <activity
-            android:name="com.example.appbanhangandroidjava.Screens.RigisterActivity"
-            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.appbanhangandroidjava.Screens.RigisterActivity"
+            android:exported="true" />
         <activity
             android:name="com.example.appbanhangandroidjava.Screens.CartActivity"
             android:exported="false" />
@@ -90,6 +91,15 @@
         <activity
             android:name="com.example.appbanhangandroidjava.MainActivity"
             android:exported="true" />
+
+        <service
+            android:name="com.example.appbanhangandroidjava.service.FirebaseMessagerReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
         <activity
             android:name="com.github.dhaval2404.imagepicker.ImagePickerActivity"
             android:screenOrientation="unspecified"

@@ -3547,6 +3547,7 @@ id imgChiTiet
 id imgHistory
 id imgImage
 id imgLoai
+id imgNoti
 id imgSp
 id img_add
 id img_gioHang
@@ -3849,6 +3850,7 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id tvCategories
+id tvContentNoti
 id tvEmail
 id tvGioHangTrong
 id tvId
@@ -3868,6 +3870,7 @@ id tv_namePhone
 id tv_pricePhone
 id tvhi
 id tvpriceDetails
+id tvtitleNoti
 id txtMoTaDetails
 id ucrop
 id ucrop_frame
@@ -4027,6 +4030,7 @@ layout activity_phone
 layout activity_rigister
 layout activity_search
 layout activity_sigin
+layout activity_splash
 layout activity_view_history
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
@@ -4105,6 +4109,7 @@ layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
 layout mtrl_search_bar
 layout mtrl_search_view
+layout notification
 layout notification_action
 layout notification_action_tombstone
 layout notification_badge

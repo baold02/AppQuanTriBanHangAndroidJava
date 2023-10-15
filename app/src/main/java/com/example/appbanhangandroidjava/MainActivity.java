@@ -30,6 +30,7 @@ import com.example.appbanhangandroidjava.adapters.SanPhamNewAdapter;
 import com.example.appbanhangandroidjava.models.LoaiSp;
 import com.example.appbanhangandroidjava.models.SanPhamNew;
 import com.example.appbanhangandroidjava.models.SanPhamNewModel;
+import com.example.appbanhangandroidjava.models.User;
 import com.example.appbanhangandroidjava.retrofits.APIBanHang;
 import com.example.appbanhangandroidjava.retrofits.Retrofitclient;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,6 +40,7 @@ import com.nex3z.notificationbadge.NotificationBadge;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.paperdb.Paper;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -63,6 +65,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         apiBanHang = Retrofitclient.getInstance(Utils.BASE_URL).create(APIBanHang.class);
+        Paper.init(this);
+        if(Paper.book().read("user") != null){
+            User user = Paper.book().read("user");
+            Utils.user_current = user;
+        }
         init();
         getToken();
         if (isConnect(this)){

@@ -12,4 +12,6 @@ public class Utils {
     public static List<GioHang> mangMuaHang = new ArrayList<>();
 
     public static User user_current = new User();
+
+    private String CONNECT_NETWORK_ERR = "";
 }

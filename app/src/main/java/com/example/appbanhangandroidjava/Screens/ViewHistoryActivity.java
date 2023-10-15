@@ -36,7 +36,7 @@ public class ViewHistoryActivity extends AppCompatActivity {
                 .subscribe(
                         orderModel -> {
                             HistoryAdapter historyAdapter = new HistoryAdapter(getApplicationContext(), orderModel.getResult());
-                            rcvHistory.setAdapter(historyAdapter    );
+                            rcvHistory.setAdapter(historyAdapter);
                         },
                         throwable -> {
                             Toast.makeText(this, throwable.getMessage(), Toast.LENGTH_SHORT).show();

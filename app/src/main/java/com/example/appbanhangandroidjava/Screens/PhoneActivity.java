@@ -112,12 +112,12 @@ public class PhoneActivity extends AppCompatActivity {
                                       }
 
                                   }else {
-                                      Toast.makeText(this, "Dữ liệu đã cạn", Toast.LENGTH_SHORT).show();
+                                      Toast.makeText(this, "Data is exhausted", Toast.LENGTH_SHORT).show();
                                       isLoading = true;
                                   }
                         },
                         throwable -> {
-                            Toast.makeText(this, "Không thể kết nối đến sever", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Cannot connect to sever", Toast.LENGTH_SHORT).show();
                         }
                 )
         );

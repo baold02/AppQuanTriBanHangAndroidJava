@@ -57,7 +57,7 @@ public class PayImmediatelyActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String str_diaChi = edtLocation.getText().toString().trim();
                 if(TextUtils.isEmpty(str_diaChi)){
-                    Toast.makeText(PayImmediatelyActivity.this, "Ban phai nhap dia chi", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PayImmediatelyActivity.this, "You must enter the address", Toast.LENGTH_SHORT).show();
                 }else {
                      String str_email = Utils.user_current.getEmail();
                      String str_sdt = Utils.user_current.getPhone();
@@ -67,7 +67,7 @@ public class PayImmediatelyActivity extends AppCompatActivity {
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(
                                     userModel -> {
-                                        Toast.makeText(PayImmediatelyActivity.this, "THanh cong", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(PayImmediatelyActivity.this, "Successfuly", Toast.LENGTH_SHORT).show();
                                         Utils.mangMuaHang.clear();
                                     },
                                     throwable -> {

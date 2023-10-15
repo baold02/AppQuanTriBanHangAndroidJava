@@ -48,6 +48,7 @@ id imgChiTiet
 id imgHistory
 id imgImage
 id imgLoai
+id imgNoti
 id imgSp
 id img_add
 id img_gioHang
@@ -74,6 +75,7 @@ id spn_loai
 id toolbar
 id toolbarChiTiet
 id tvCategories
+id tvContentNoti
 id tvEmail
 id tvGioHangTrong
 id tvId
@@ -92,6 +94,7 @@ id tv_namePhone
 id tv_pricePhone
 id tvhi
 id tvpriceDetails
+id tvtitleNoti
 id txtMoTaDetails
 layout activity_add_product
 layout activity_admin
@@ -104,6 +107,7 @@ layout activity_phone
 layout activity_rigister
 layout activity_search
 layout activity_sigin
+layout activity_splash
 layout activity_view_history
 layout item_cart
 layout item_history
@@ -112,6 +116,7 @@ layout item_loaisp
 layout item_order
 layout item_phone
 layout item_sp_new
+layout notification
 mipmap ic_launcher
 mipmap ic_launcher_round
 raw shopping
